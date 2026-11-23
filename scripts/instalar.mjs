@@ -6,7 +6,7 @@ import { copyFileSync, existsSync, mkdirSync, openSync } from "node:fs";
 
 // .env y agente.md solo se crean si faltan: nunca se pisa lo que ya exista. Las claves se pegan en el CRM.
 if (!existsSync(".env") && !existsSync(".env.local")) copyFileSync(".env.example", ".env");
-if (!existsSync("agente.md")) copyFileSync("perfiles/reformas.md", "agente.md");
+if (!existsSync("agente.md")) copyFileSync("perfiles/inmobiliaria.md", "agente.md");
 
 // La compilación escribe en el registro, que se va sumando entre instalaciones.
 mkdirSync("logs", { recursive: true });

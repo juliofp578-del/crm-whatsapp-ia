@@ -335,6 +335,8 @@ process.exit(fallos === 0 ? 0 : 1);
 async function modoNormal() {
   const agenteOriginal = readFileSync("agente.md");
   await postJson("/api/configuracion", { restablecer: "todo" });
+  // Restablecer deja la inmobiliaria (la de partida); el circuito está escrito sobre el estudio de reformas.
+  copyFileSync("perfiles/reformas.md", "agente.md");
   await postJson("/api/ajustes", { leadsPrueba: true });
   await postJson("/api/reset", {});
   await vaciar();

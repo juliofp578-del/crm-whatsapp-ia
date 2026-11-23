@@ -505,7 +505,8 @@ describe("esquema", () => {
       vi.stubEnv("BD_LOCAL", carpeta);
       g.__bd = undefined;
       const primera = await contarLeads();
-      expect(primera).toBe(Object.keys(crearSemilla("Estudio de reformas", new Date()).leads).length);
+      // Una instalación nueva empieza con los ejemplos de la inmobiliaria.
+      expect(primera).toBe(Object.keys(crearSemilla("Inmobiliaria", new Date(), { sector: "inmobiliaria", base: "inmobiliaria" }).leads).length);
       await (await abierta()).cerrar();
       g.__bd = undefined;
       expect(await contarLeads()).toBe(primera);

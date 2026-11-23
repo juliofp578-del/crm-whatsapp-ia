@@ -15,7 +15,7 @@ Quien abre esta carpeta lo ha instalado para usarlo con sus propias claves y ada
 
 ## Dónde vive cada cosa y qué gana
 
-- **`agente.md`**: las instrucciones activas de tu asistente y su perfil (la línea 1, `# Asistente de WhatsApp · Nombre`). Se lee del disco en cada mensaje. No está en el repositorio: si falta, el CRM lo crea desde `perfiles/reformas.md`. Ajustes → Avanzado → «Instrucciones completas del asistente» lo edita.
+- **`agente.md`**: las instrucciones activas de tu asistente y su perfil (la línea 1, `# Asistente de WhatsApp · Nombre`). Se lee del disco en cada mensaje. No está en el repositorio: si falta, el CRM lo crea desde `perfiles/inmobiliaria.md`. Ajustes → Avanzado → «Instrucciones completas del asistente» lo edita.
 - **Ajustes** guarda lo demás en la base de datos (nombre, logo, color, país, cómo te escriben desde la web, horario de citas, frases, mensajes aprobados) y eso gana a los valores antiguos de `.env` (`NOMBRE_NEGOCIO`, `PLANTILLA`, `PLANTILLA_IDIOMA`, `MODELO`, `TELEFONO_COMERCIAL`).
 - **`perfiles/`**: las instrucciones de partida de cada tipo (`reformas.md`, `inmobiliaria.md`, `clinica.md`, `generico.md`). No las toques: las pruebas las usan.
 - **`negocios/`**: los archivos de negocio que aplica `scripts/configurar.mjs`. `negocios/ejemplo-peluqueria.json` es el ejemplo.

@@ -76,7 +76,7 @@ Ningún paso pide editar `.env`. Lo primero es **Ajustes → Conexiones**: cada 
 
 Notas para quien tenía la versión anterior (con `git clone`):
 
-- **Antes de `git pull`, copia tu `agente.md`** a otro sitio. Ya no está en el repositorio, así que `git pull` lo borra. El CRM lo vuelve a crear desde `perfiles/reformas.md`: pon tu copia en su sitio.
+- **Antes de `git pull`, copia tu `agente.md`** a otro sitio. Ya no está en el repositorio, así que `git pull` lo borra. El CRM lo vuelve a crear desde `perfiles/inmobiliaria.md`: pon tu copia en su sitio.
 - **Tu token de ngrok** se lee de la configuración de ngrok (`ngrok.yml`). Si no lo encuentra, pégalo una vez en Ajustes → Conexiones.
 - **Con `SUPABASE_DB_URL` en `.env`,** tus datos siguen en Supabase. Las instalaciones nuevas los guardan en `datos/`.
 - **`NOMBRE_NEGOCIO`, `PLANTILLA`, `PLANTILLA_IDIOMA`, `MODELO` y `TELEFONO_COMERCIAL` en `.env`** siguen funcionando como valores de partida; lo que guardes en Ajustes tiene prioridad.

@@ -102,12 +102,15 @@ describe("instrucciones", () => {
     }
   });
 
-  it("sin agente.md, el CRM parte de perfiles/reformas.md", () => {
-    // agente.md es de cada instalación (no está en el repositorio): quien lo crea copia reformas.
-    expect(PRESETS.reformas.archivo).toBe("perfiles/reformas.md");
-    for (const script of ["scripts/arrancar.mjs", "scripts/servidor-pruebas.mjs"]) {
-      expect(leer(script), script).toContain('copyFileSync("perfiles/reformas.md", "agente.md")');
+  it("sin agente.md, el CRM parte de perfiles/inmobiliaria.md", () => {
+    // agente.md es de cada instalación (no está en el repositorio): quien lo crea copia inmobiliaria.
+    expect(PRESETS.inmobiliaria.archivo).toBe("perfiles/inmobiliaria.md");
+    for (const script of ["scripts/arrancar.mjs", "scripts/instalar.mjs"]) {
+      expect(leer(script), script).toContain('copyFileSync("perfiles/inmobiliaria.md", "agente.md")');
     }
+    expect(leer("instalar.sh")).toContain("cp perfiles/inmobiliaria.md agente.md");
+    // El servidor de pruebas sigue partiendo de reformas: el circuito completo está escrito sobre ese negocio.
+    expect(leer("scripts/servidor-pruebas.mjs")).toContain('copyFileSync("perfiles/reformas.md", "agente.md")');
   });
 
   it("la tabla de pisos y la frase del reservado no se mueven", () => {

@@ -755,7 +755,7 @@ export async function restablecer(alcance: "perfil" | "todo"): Promise<Configura
   if (alcance === "todo") {
     await restablecerConfiguracion();
     await recargarTrasEscribir();
-    perfil = await escribirInstrucciones(await leerPreset("reformas"), actual);
+    perfil = await escribirInstrucciones(await leerPreset("inmobiliaria"), actual);
   } else {
     const id = actual.id;
     const sector = sectorPreset(id);

@@ -11,7 +11,7 @@ import nextEnv from "@next/env";
 
 // Sin .env se copia el de ejemplo y se sigue: las claves se pegan en el CRM.
 if (!existsSync(".env") && !existsSync(".env.local") && existsSync(".env.example")) copyFileSync(".env.example", ".env");
-if (!existsSync("agente.md")) copyFileSync("perfiles/reformas.md", "agente.md");
+if (!existsSync("agente.md")) copyFileSync("perfiles/inmobiliaria.md", "agente.md");
 
 nextEnv.loadEnvConfig(process.cwd(), false, { info: () => {}, error: console.error });
 

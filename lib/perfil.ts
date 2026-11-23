@@ -90,11 +90,11 @@ export async function leerPerfil(ruta: string = rutaAgente()): Promise<Perfil> {
     avisarCadaMinuto(`casi-vacio:${ruta}`, () => logAviso("agente.md está casi vacío: se usa la última versión válida"));
   } catch (error) {
     if (codigo(error) === "ENOENT") {
-      // Sin agente.md (F23): las instrucciones de reformas, solo en memoria, hasta que se guarde uno.
+      // Sin agente.md (F23): las instrucciones de inmobiliaria, solo en memoria, hasta que se guarde uno.
       try {
-        const respaldo = await leerConCache(path.join(/*turbopackIgnore: true*/ process.cwd(), PRESETS.reformas.archivo));
+        const respaldo = await leerConCache(path.join(/*turbopackIgnore: true*/ process.cwd(), PRESETS.inmobiliaria.archivo));
         if (respaldo) {
-          avisarCadaMinuto("falta-agente", () => logAviso("Falta agente.md: se usan las instrucciones de perfiles/reformas.md"));
+          avisarCadaMinuto("falta-agente", () => logAviso("Falta agente.md: se usan las instrucciones de perfiles/inmobiliaria.md"));
           return respaldo;
         }
       } catch {

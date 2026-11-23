@@ -64,7 +64,7 @@ Es lo único que no se hace desde el CRM:
 5. **Publica la app:** en Meta for Developers, «Configuración de la app» → «Básica», pega la URL de tu política de privacidad, «Guardar cambios» y «Publicar». Una app en modo desarrollo no recibe los mensajes, aunque todo lo demás esté en verde.
 6. **Para clientes de verdad:** añade el número de tu negocio y un método de pago.
 
-Para empezar no hace falta ningún mensaje aprobado (plantilla de WhatsApp): en tu web, el botón «Abrir WhatsApp» abre WhatsApp con un mensaje ya escrito («Hola, quiero pedir presupuesto para una reforma.», o el que pongas en Ajustes → Tu web). Como escribe primero tu cliente, Meta abre la conversación 24 h y tu asistente le contesta con mensajes normales. El CRM sabe que vino de tu web («Te escribió desde tu web») porque empieza con ese mensaje.
+Para empezar no hace falta ningún mensaje aprobado (plantilla de WhatsApp): en tu web, el botón «Abrir WhatsApp» abre WhatsApp con un mensaje ya escrito («Hola, quiero información sobre un inmueble.», o el que pongas en Ajustes → Tu web). Como escribe primero tu cliente, Meta abre la conversación 24 h y tu asistente le contesta con mensajes normales. El CRM sabe que vino de tu web («Te escribió desde tu web») porque empieza con ese mensaje.
 
 Los mensajes aprobados son un extra, solo para escribir tú primero. Los crea el CRM: en Ajustes → Conexiones, «Enviar a Meta para aprobar». Nadie los escribe a mano. Son tres:
 
@@ -263,7 +263,7 @@ En local, desde internet solo se llega al webhook: `proxy.ts` (con las reglas de
 | Archivo | Qué hay |
 |---|---|
 | `instalar.sh`, `arrancar.sh`, `comprobar.sh` | Instalar o actualizar (también en un servidor), abrir el CRM y la lista de comprobaciones desde la terminal |
-| `agente.md` | Las instrucciones activas de tu asistente. No está en el repositorio: se crea desde `perfiles/reformas.md` |
+| `agente.md` | Las instrucciones activas de tu asistente. No está en el repositorio: se crea desde `perfiles/inmobiliaria.md` |
 | `perfiles/` | Las instrucciones de partida de cada tipo de negocio |
 | `negocios/` | Los archivos de negocio para `configurar.mjs` (`ejemplo-peluqueria.json`) |
 | `app/` | La web, el panel, `/entrar` y las rutas |

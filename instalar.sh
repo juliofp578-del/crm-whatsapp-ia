@@ -511,7 +511,7 @@ preparar_aplicacion() {
   como_crm npx --yes pnpm@11.9.0 install --frozen-lockfile || fallar_paso "instalar las piezas del CRM"
   como_crm npx --yes pnpm@11.9.0 exec next build || fallar_paso "preparar la aplicación"
   # Como en un Mac: el asistente de ejemplo solo si aún no hay uno.
-  como_crm bash -c '[ -e agente.md ] || [ -L agente.md ] || cp perfiles/reformas.md agente.md' ||
+  como_crm bash -c '[ -e agente.md ] || [ -L agente.md ] || cp perfiles/inmobiliaria.md agente.md' ||
     fallar_paso "preparar la aplicación"
 }
 

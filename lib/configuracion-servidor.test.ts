@@ -229,22 +229,22 @@ describe("perfil", () => {
     expect((await leerPerfil()).instrucciones).toContain("Una línea más.");
   });
 
-  it("sin agente.md usa perfiles/reformas.md y lo avisa una vez por minuto", async () => {
+  it("sin agente.md usa perfiles/inmobiliaria.md y lo avisa una vez por minuto", async () => {
     vi.useFakeTimers({ toFake: ["Date"] });
     vi.setSystemTime(new Date("2026-11-12T10:00:00Z"));
     const log = vi.spyOn(console, "log").mockImplementation(() => {});
     fs.rmSync(agente());
-    const avisos = () => lineasDeLog(log).filter((l) => l.includes("Falta agente.md: se usan las instrucciones de perfiles/reformas.md"));
+    const avisos = () => lineasDeLog(log).filter((l) => l.includes("Falta agente.md: se usan las instrucciones de perfiles/inmobiliaria.md"));
     const perfil = await leerPerfil();
-    expect(perfil.id).toBe("estudio-de-reformas");
-    expect(perfil.hash).toBe(hashTexto(PRESETS_TEXTO.reformas));
+    expect(perfil.id).toBe("inmobiliaria");
+    expect(perfil.hash).toBe(hashTexto(PRESETS_TEXTO.inmobiliaria));
     await leerPerfil();
     expect(avisos()).toHaveLength(1);
     vi.setSystemTime(new Date("2026-11-12T10:01:01Z"));
     await leerPerfil();
     expect(avisos()).toHaveLength(2);
     // Con la huella de ese respaldo, guardar escribe el archivo (F23).
-    await guardarPrompt(PRESETS_TEXTO.reformas.replace("amables", "muy amables"), perfil.hash);
+    await guardarPrompt(PRESETS_TEXTO.inmobiliaria.replace("amables", "muy amables"), perfil.hash);
     expect(leerAgente()).toContain("muy amables");
     log.mockRestore();
   });
@@ -553,14 +553,14 @@ describe("restablecer y logo", () => {
     expect(leerAgente()).toBe(texto);
   });
 
-  it("restablecer todo deja reformas", async () => {
-    await cambiarDeNegocio({ sector: "inmobiliaria" }, { nombre: "Pisos Mar" });
+  it("restablecer todo deja inmobiliaria", async () => {
+    await cambiarDeNegocio({ sector: "clinica" }, { nombre: "Clínica Mar" });
     await cambiarAsistente(false);
     const r = await restablecer("todo");
-    expect(r.perfil.id).toBe("estudio-de-reformas");
+    expect(r.perfil.id).toBe("inmobiliaria");
     expect(r.guardada).toBe(false);
     expect(r.sistema.asistente.activo).toBe(true);
-    expect(leerAgente()).toBe(PRESETS_TEXTO.reformas);
+    expect(leerAgente()).toBe(PRESETS_TEXTO.inmobiliaria);
     expect(normalizarGuardada(await bd.leerConfiguracionGuardada()).perfiles).toEqual({});
   });
 

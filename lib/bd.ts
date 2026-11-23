@@ -6,9 +6,12 @@ import {
   type CopiasInstrucciones,
   CUERPO_POR_DEFECTO,
   CUERPOS_CONOCIDOS,
+  GUARDADA_VACIA,
   LIMITES,
   normalizarGuardada,
+  opcionesSemilla,
 } from "./configuracion";
+import { resolver } from "./presets/index";
 import { type Conexion, type Consultas, conectar } from "./conexion";
 import { avisarCambio } from "./eventos";
 import { log, recortar } from "./log";
@@ -305,6 +308,15 @@ function opcionesPorDefecto(): OpcionesSemilla {
   return { ...OPCIONES_POR_DEFECTO, negocio: process.env.NOMBRE_NEGOCIO || "Estudio de reformas", plantilla };
 }
 
+/** El tipo de negocio con el que empieza una instalación nueva (el de `perfiles/` que copian arrancar e instalar). */
+const PERFIL_INICIAL = { id: "inmobiliaria", nombre: "Inmobiliaria", hash: "" } as const;
+
+/** Los ejemplos del primer arranque: los de la inmobiliaria, como el agente.md que se crea al instalar. */
+function opcionesPrimerArranque(): OpcionesSemilla {
+  const c = resolver({ perfil: { ...PERFIL_INICIAL }, guardada: GUARDADA_VACIA, entorno: {} });
+  return { ...opcionesSemilla(c), negocio: process.env.NOMBRE_NEGOCIO || c.negocio.nombre };
+}
+
 async function preparar(): Promise<Conexion> {
   const bd = await conectar();
   let sembrada = false;
@@ -314,7 +326,7 @@ async function preparar(): Promise<Conexion> {
       for (const sentencia of ESQUEMA) await c.ejecutar(sentencia);
       // La primera vez no hay nada guardado: se crean los ejemplos. Después, nunca más al arrancar.
       if (await c.ejecutar("INSERT INTO ajustes (id, leads_prueba) VALUES (1, true) ON CONFLICT DO NOTHING")) {
-        const o = opcionesPorDefecto();
+        const o = opcionesPrimerArranque();
         await insertarSemilla(c, crearSemilla(o.negocio, new Date(), o));
         await c.ejecutar("UPDATE ajustes SET ejemplos_de = $1 WHERE id = 1", [o.sector]);
         sembrada = true;
