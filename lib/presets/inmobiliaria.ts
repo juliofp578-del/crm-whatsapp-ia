@@ -34,7 +34,7 @@ export const PRESET_INMOBILIARIA: Preset = {
   spam: { dominiosNormales: [], ganchosQuitados: [] },
   portada: {
     descripcion: "Pisos en venta en Barcelona. Pide una visita y te escribimos por WhatsApp en segundos.",
-    hero: { antetitulo: "Inmobiliaria · Barcelona", titular: "Pide una visita.", subtitulo: "Te escribimos por WhatsApp en segundos.", foto: "/fotos/formulario.webp" },
+    hero: { antetitulo: "Inmobiliaria · Barcelona", titular: "Pide una visita.", subtitulo: "Te escribimos por WhatsApp en segundos.", foto: "/fotos/inmobiliaria.webp" },
     formulario: {
       chips: ["Respuesta en segundos", "Visita en esta conversación"],
       zona: "Zona o barrio",

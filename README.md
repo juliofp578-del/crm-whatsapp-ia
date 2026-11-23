@@ -333,7 +333,7 @@ Los precios de los ejemplos de reformas son orientativos de Barcelona en 2026; l
 
 El modo prueba, si lo eliges, descarga aparte Baileys (MIT) y libsignal (GPL-3.0): no forman parte del CRM ni de su licencia.
 
-Las fotos de `public/fotos/` no entran en la licencia MIT: son de [Unsplash](https://unsplash.com), con su licencia gratuita.
+Las fotos de `public/fotos/` no entran en la licencia MIT: son de [Unsplash](https://unsplash.com), con su licencia gratuita, salvo `inmobiliaria.webp` (la portada de la inmobiliaria), que la aporta @JulioFloresAI.
 
 | Archivo | Foto |
 |---|---|

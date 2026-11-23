@@ -23,7 +23,7 @@ export interface ReglaPase { motivo: string /* "" → «Ha escrito «<frase>»»
 export interface FrasesFijas { pase: string; fallo: string; noTexto: string; audio: string; baja: string; presentacion: string /* con {negocio} */; borrarDatos: string /* con {negocio} */ }
 export interface ReglasAgente { catalogo: TriEstado; negociar: TriEstado; pasarSiempre: ReglaPase[]; excepciones: string[]; frases: FrasesFijas; trato: "tu" | "usted" }
 
-export const FOTOS_PORTADA = ["/fotos/formulario.webp", "/fotos/panel.webp", "/fotos/proyecto-1.webp", "/fotos/proyecto-2.webp", "/fotos/proyecto-3.webp", "/fotos/proyecto-4.webp", "/fotos/proyecto-5.webp", "/fotos/proyecto-6.webp"] as const;
+export const FOTOS_PORTADA = ["/fotos/formulario.webp", "/fotos/panel.webp", "/fotos/proyecto-1.webp", "/fotos/proyecto-2.webp", "/fotos/proyecto-3.webp", "/fotos/proyecto-4.webp", "/fotos/proyecto-5.webp", "/fotos/proyecto-6.webp", "/fotos/inmobiliaria.webp"] as const;
 export type FotoPortada = (typeof FOTOS_PORTADA)[number];
 export interface Portada {
   descripcion: string;                                          // <meta description>, ≤ 160
